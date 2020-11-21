@@ -7,6 +7,7 @@ const errorHandler = require("./middleware/error");
 
 // Route files
 const categoryRoutes = require("./routes/categoryRoutes");
+const subRoutes = require("./routes/subRoutes");
 
 // Load env vars
 dotenv.config({ path: "./backend/config/config.env" });
@@ -26,6 +27,7 @@ if (process.env.NODE_ENV === "development") {
 
 // Mount routers
 app.use("/api/category", categoryRoutes);
+app.use("/api/sub", subRoutes);
 
 // Error handler
 app.use(errorHandler);

@@ -1,10 +1,13 @@
-import MobileNav from "./components/MobileNav";
+import HomePage from "./pages/HomePage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <MobileNav />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+      </Switch>
+    </Router>
   );
 }
 

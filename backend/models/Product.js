@@ -69,7 +69,6 @@ const ProductSchema = new mongoose.Schema(
       type: String,
       trim: true,
       lowercase: true,
-      required: true,
     },
   },
   { timestamps: true }

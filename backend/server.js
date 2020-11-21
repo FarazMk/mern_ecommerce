@@ -28,6 +28,7 @@ if (process.env.NODE_ENV === "development") {
 // Mount routers
 app.use("/api/category", categoryRoutes);
 app.use("/api/sub", subRoutes);
+// app.use("/api/products", productRoutes)
 
 // Error handler
 app.use(errorHandler);

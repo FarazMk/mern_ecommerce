@@ -2,7 +2,11 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const colors = require("colors");
-const connectDB = require("./backend/config/db");
+const connectDB = require("./config/db");
+const errorHandler = require("./middleware/error");
+
+// Route files
+const categoryRoutes = require("./routes/categoryRoutes");
 
 // Load env vars
 dotenv.config({ path: "./backend/config/config.env" });
@@ -12,10 +16,19 @@ connectDB();
 
 const app = express();
 
+// Body parser
+app.use(express.json());
+
 // Dev logging middleware
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
+// Mount routers
+app.use("/api/category", categoryRoutes);
+
+// Error handler
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 

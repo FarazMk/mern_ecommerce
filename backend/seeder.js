@@ -1,49 +1,53 @@
+const fs = require("fs");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const colors = require("colors");
-const products = require("./data/products.js");
-const Product = require("./models/Product.js");
 
 // Load env vars
-dotenv.config({ path: "./backend/config/config.env" });
+dotenv.config({ path: "./config/config.env" });
+
+// Load models
+const Product = require("./models/Product");
 
 // Connect to DB
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
+  useCreateIndex: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
 });
 
+//  Read JSON files
+const products = JSON.parse(
+  fs.readFileSync(`${__dirname}/data/products.json`, "utf-8")
+);
+
+// Import data into DB
 const importData = async () => {
   try {
-    const sampleProducts = products.map(product => {
-      return { ...product };
-    });
+    await Product.create(products);
 
-    await Product.insertMany(sampleProducts);
-
-    console.log("Data Imported!...".green.inverse);
+    console.log(`Data Imported...`.green.inverse);
     process.exit();
-  } catch (error) {
-    console.error(`${error}`.red.inverse);
-    process.exit(1);
+  } catch (err) {
+    console.error(err);
   }
 };
 
-const destroyData = async () => {
+// Delete data from DB
+const deleteData = async () => {
   try {
     await Product.deleteMany();
 
-    console.log("Data Destroyed!...".red.inverse);
+    console.log(`Data Destroyed...`.red.inverse);
     process.exit();
-  } catch (error) {
-    console.error(`${error}`.red.inverse);
-    process.exit(1);
+  } catch (err) {
+    console.error(err);
   }
 };
 
-if (process.argv[2] === "-d") {
-  destroyData();
-} else if (process.argv[2] === "-i") {
+if (process.argv[2] === "-i") {
   importData();
+} else if (process.argv[2] === "-d") {
+  deleteData();
 }

@@ -7,10 +7,8 @@ const MobileNav = () => {
       <button type="button" className={classes.nav__link}>
         <i className="material-icons">menu</i>
         <div className={classes.dropdown}>
-          <div className="dropdown__wrapper__button">
-            <button type="button">Women</button>
-            <i className="material-icons">arrow_drop_up</i>
-          </div>
+          <button type="button">Women</button>
+
           <div className={classes.dropdown__links}>
             <ul>
               <li>
@@ -24,10 +22,9 @@ const MobileNav = () => {
               </li>
             </ul>
           </div>
-          <div className="dropdown__wrapper__button">
-            <button type="button">Men</button>
-            <i className="material-icons">arrow_drop_up</i>
-          </div>
+
+          <button type="button">Men</button>
+
           <div className={classes.dropdown__links}>
             <ul>
               <li>

@@ -5,6 +5,7 @@ body {
 .nav {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 55px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
@@ -29,6 +30,33 @@ body {
 
 .nav__link:visited {
   text-decoration: none;
+}
+
+.menu__wrapper ul {
+  /* visibility: hidden; */
+}
+
+.menu {
+  /* visibility: hidden; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu > ul {
+  width: 100vw;
+  height: 100vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .active {

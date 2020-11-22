@@ -1,14 +1,14 @@
-import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import cn from "classnames";
+import { useToggle } from "../../hooks/useToggle";
 import classes from "./mobileNav.module.css";
 
 const MobileNav = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useToggle(false);
 
   return (
     <div className={classes.container}>
-      <div className={classes.hamburger} onClick={() => setIsOpen(!isOpen)}>
+      <div className={classes.hamburger} onClick={setIsOpen}>
         <div className={classes.line1}></div>
         <div className={classes.line2}></div>
         <div className={classes.line3}></div>

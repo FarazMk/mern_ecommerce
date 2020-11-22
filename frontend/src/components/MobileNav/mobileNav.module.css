@@ -52,8 +52,8 @@ body {
   height: 100vh;
   width: 100%;
   list-style: none;
-  clip-path: circle(100px at 0 -13%);
-  -webkit-clip-path: circle(100px at 0 -13%);
+  clip-path: circle(50px at 0 -13%);
+  -webkit-clip-path: circle(50px at 0 -13%);
   transition: all 1s ease-out;
   /* display: none; */
 }

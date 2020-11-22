@@ -1,4 +1,4 @@
-import MobileNav from "../components/MobileNav";
+import MobileNav from "../components/MobileNav/MobileNav";
 
 const HomePage = () => {
   return (

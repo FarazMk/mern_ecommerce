@@ -14,6 +14,13 @@ body {
   overflow-x: auto;
 }
 
+.nav button {
+  border: none;
+  margin: 20px 0 20px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .nav__link {
   display: flex;
   align-items: center;
@@ -25,40 +32,50 @@ body {
   font-size: 13px;
   text-decoration: none;
   color: #0f0f12;
-  transition: background-color 0.1s ease-in-out;
 }
 
 .nav__link:visited {
   text-decoration: none;
 }
-
-.menu__wrapper ul {
-  /* visibility: hidden; */
-}
-
-.menu {
-  /* visibility: hidden; */
+.dropdown {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-
-.menu > ul {
+  justify-content: center;
   width: 100vw;
-  height: 100vw;
-  display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
+  height: 93vh;
 }
 
-.active {
-  color: red;
+.dropdown li {
+  text-align: center;
+}
+
+.dropdown__links button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.dropdown__links ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  /* display: none; */
+  /* transition: all 0.4s ease; */
+}
+
+.dropdown__links a {
+  color: black;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+button {
+  outline: none;
 }

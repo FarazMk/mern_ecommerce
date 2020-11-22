@@ -37,43 +37,85 @@ body {
 .nav__link:visited {
   text-decoration: none;
 }
-.dropdown {
+
+.nav__items {
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 93vh;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  background: blue;
+  height: 100vh;
+  width: 100%;
+  list-style: none;
+  clip-path: circle(100px at 0 -13%);
+  -webkit-clip-path: circle(100px at 0 -13%);
+  transition: all 1s ease-out;
+  /* display: none; */
 }
 
-.dropdown li {
-  text-align: center;
+.nav__items__open {
+  clip-path: circle(2000px at 0 -13%);
+  -webkit-clip-path: circle(2000px at 0 -13%);
 }
 
-.dropdown__links button {
+.nav__items li {
+  margin-bottom: 4rem;
+}
+
+.nav__items li button {
+  color: #0f0f12;
+}
+
+.nav__items li a {
+  color: #0f0f12;
+  text-decoration: none;
+}
+
+.line1,
+.line2,
+.line3 {
+  height: 3px;
+  background: #0f0f12;
+  margin: 5px;
+}
+
+.line1 {
+  width: 30px;
+}
+
+.line2 {
+  width: 20px;
+}
+
+.line3 {
+  width: 10px;
+}
+
+.container {
+  position: relative;
+}
+
+.container ul li button,
+.container ul li a {
+  font-size: 25px;
+  font-weight: bold;
   background: none;
   border: none;
-  color: white;
-  font-weight: bold;
+  outline: none;
 }
 
-.dropdown__links ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  /* display: none; */
-  /* transition: all 0.4s ease; */
-}
-
-.dropdown__links a {
-  color: black;
-  text-decoration: none;
-  font-size: 17px;
+.hamburger {
+  position: absolute;
+  cursor: pointer;
+  left: 5%;
+  top: 50%;
+  transform: translate(-5%, 50%);
+  z-index: 20;
 }
 
 button {

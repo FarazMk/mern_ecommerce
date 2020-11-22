@@ -1,59 +1,52 @@
+import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import cn from "classnames";
 import classes from "./mobileNav.module.css";
 
 const MobileNav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className={classes.nav}>
-      <button type="button" className={classes.nav__link}>
-        <i className="material-icons">menu</i>
-        <div className={classes.dropdown}>
-          <button type="button">Women</button>
-
-          <div className={classes.dropdown__links}>
-            <ul>
-              <li>
-                <Link to="/products/skirt">Skirt</Link>
-              </li>
-              <li>
-                <Link to="/products/dress">Dresses</Link>
-              </li>
-              <li>
-                <Link to="/products/knitewear">Knitewear</Link>
-              </li>
-            </ul>
-          </div>
-
-          <button type="button">Men</button>
-
-          <div className={classes.dropdown__links}>
-            <ul>
-              <li>
-                <Link to="/products/shirt">Shirts</Link>
-              </li>
-              <li>
-                <Link to="/products/pants">Pants</Link>
-              </li>
-              <li>
-                <Link to="/products/jacket">Jackets</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </button>
-      <button type="button" className={classes.nav__link}>
-        <i className="material-icons">search</i>
-      </button>
-      <NavLink
-        to="/cart"
-        className={classes.nav__link}
-        activeClassName={classes.active}
+    <div className={classes.container}>
+      <div className={classes.hamburger} onClick={() => setIsOpen(!isOpen)}>
+        <div className={classes.line1}></div>
+        <div className={classes.line2}></div>
+        <div className={classes.line3}></div>
+      </div>
+      <ul
+        className={
+          isOpen
+            ? cn(classes.nav__items, classes.nav__items__open)
+            : classes.nav__items
+        }
       >
-        <span className="material-icons">shopping_bag</span>
-      </NavLink>
-      <Link to="/profile" className={classes.nav__link}>
-        <span className="material-icons">person_outline</span>
-      </Link>
-    </nav>
+        <li>
+          <button>Men</button>
+        </li>
+        <li>
+          <button>Women</button>
+        </li>
+        <li>
+          <Link to="/about">About Us</Link>
+        </li>
+      </ul>
+
+      <nav className={classes.nav}>
+        <button type="button" className={classes.nav__link}>
+          <i className="material-icons">search</i>
+        </button>
+        <NavLink
+          to="/cart"
+          className={classes.nav__link}
+          activeClassName={classes.active}
+        >
+          <span className="material-icons">shopping_bag</span>
+        </NavLink>
+        <Link to="/profile" className={classes.nav__link}>
+          <span className="material-icons">person_outline</span>
+        </Link>
+      </nav>
+    </div>
   );
 };
 
